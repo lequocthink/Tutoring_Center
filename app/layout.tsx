@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import myUser from './actions/getUser'
+import getBasketItems from './actions/getBasketItems'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,11 +19,13 @@ export default async function RootLayout({
 }) {
 
   const myCurrentUser = await myUser();
+  const basketItems = await getBasketItems();
 
   return (
     <html lang="en">
       <body className={inter.className}>
         <Navbar 
+          basketItems={basketItems}
           myUser={myCurrentUser}
         />
         {children}

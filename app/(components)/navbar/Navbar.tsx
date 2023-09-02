@@ -11,9 +11,10 @@ import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
     myUser: SafeUser | null;
+    basketItems: any;
 }
 
-export default function Navbar({ myUser } : UserMenuProps) {
+export default function Navbar({ myUser, basketItems } : UserMenuProps) {
 
     const [userMenuOpen, setUserMenuOpen] = useState(false)
     const [searchQuery, setSearchQuery] = useState('')
@@ -81,8 +82,7 @@ export default function Navbar({ myUser } : UserMenuProps) {
                     <div className="relative">
                        <Link href='/basket'><MdOutlineShoppingCart className='h-6 w-10'/></Link>
                         <div className="absolute -right-1 -bottom-2 bg-blue-500 rounded-full w-6 h-6 flex justify-center items-center text-white">
-                            
-                            3
+                            {basketItems.length}
                         </div>
                     </div>
                 </div>
