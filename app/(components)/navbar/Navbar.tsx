@@ -60,16 +60,24 @@ export default function Navbar({ myUser, basketItems } : UserMenuProps) {
                         <Link href="/">Trang Chủ</Link>
                     </div>
 
-                    <div>
-                        <Link href="/about">Giới Thiệu</Link>
-                    </div>
 
                     <div>
                         <Link href="/course">Khóa Học</Link>
                     </div>
 
                     <div>
+                        <Link href="/news">Bản Tin</Link>
+                    </div>
+
+                    <div>
+                        <Link href="/about">Giới Thiệu</Link>
+                    </div>
+                    <div>
                         <Link href="/contact">Liên Hệ</Link>
+                    </div>
+
+                    <div>
+                        <Link href="/recruitment">Tuyển dụng</Link>
                     </div>
 
 

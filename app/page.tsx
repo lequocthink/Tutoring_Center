@@ -1,10 +1,12 @@
 import SliderMain from "./(components)/SliderMain";
 import CourseComponent from "./(components)/CourseComponent";
 import getAllCourses from "./actions/getAllCourses";
+import IntroduceFirst from "./(components)/introduceFirst/IntroduceFirst";
 
 const images = [
   "/a.jpg",
-  "b.jpg"
+  "b.jpg",
+  "c.jpg"
 ]
 
 interface HomeProps {
@@ -21,6 +23,8 @@ export default async function Home({searchParams}: HomeProps) {
       <SliderMain
         images={images}
       />
+
+      <IntroduceFirst />
 
       <div>
         <div className="flex flex-wrap px-8">
