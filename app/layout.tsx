@@ -1,4 +1,5 @@
 import Navbar from './(components)/navbar/Navbar'
+import Footer from './(components)/footer/Footer'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -29,6 +30,7 @@ export default async function RootLayout({
           myUser={myCurrentUser}
         />
         {children}
+        <Footer />
       </body>
     </html>
   )

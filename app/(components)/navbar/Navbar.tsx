@@ -8,6 +8,7 @@ import UserMenu from "./UserMenu";
 import { useSearchParams } from "next/navigation";
 import qs from 'query-string'
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface UserMenuProps {
     myUser: SafeUser | null;
@@ -50,11 +51,26 @@ export default function Navbar({ myUser, basketItems } : UserMenuProps) {
 
   return (
     <div className="shadow-xl bg-white z-[99999] sticky">
-        <div className="p-3 px-4">
+        <div className="p-3 px-4 container m-auto">
             <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-6 flex-1 relative">
-                    <Link href='#'><img src="/logo.png" alt="Logo" width={91} height={34}/></Link>
+                    <Link href='/'><Image src="/logo.png" alt="Logo" width={40} height={40}/></Link>
 
+                    <div>
+                        <Link href="/">Trang Chủ</Link>
+                    </div>
+
+                    <div>
+                        <Link href="/about">Giới Thiệu</Link>
+                    </div>
+
+                    <div>
+                        <Link href="/course">Khóa Học</Link>
+                    </div>
+
+                    <div>
+                        <Link href="/contact">Liên Hệ</Link>
+                    </div>
 
 
 
@@ -71,20 +87,20 @@ export default function Navbar({ myUser, basketItems } : UserMenuProps) {
 
 
                 <div className="items-center gap-4 text-[.8rem] px-2 hidden lg:flex">
-                    <div>
+                    {/* <div>
                         <Link href="#">Udemy Business</Link>
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                         <a href={myUser ?  "/create" : '/login'}>Teach on Udemy</a>
-                    </div>
+                    </div> */}
 
-                    <div className="relative">
+                    {/* <div className="relative">
                        <Link href='/basket'><MdOutlineShoppingCart className='h-6 w-10'/></Link>
                         <div className="absolute -right-1 -bottom-2 bg-blue-500 rounded-full w-6 h-6 flex justify-center items-center text-white">
                             {basketItems.length}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
 
@@ -95,9 +111,9 @@ export default function Navbar({ myUser, basketItems } : UserMenuProps) {
                               <Link href='/login' className='py-2 px-6 border-black border-[1px]'>Login</Link>
                             </div>
 
-                            <div>
+                            {/* <div>
                                <Link href='/register' className='py-2 px-6 bg-black text-white border-[1px] border-black '>Sign up</Link>
-                            </div>
+                            </div> */}
                         </>
                     )}
 
