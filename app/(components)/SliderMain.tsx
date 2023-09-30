@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import Image from "next/image";
 
 
 interface CarouselProps {
@@ -30,8 +31,10 @@ export default function SliderMain({images}:CarouselProps) {
   return (
     <div className="relative">
         <div>
-            <button onClick={prevImage} className="absolute left-[2%] top-[50%] z-[40]"><BsArrowLeft/></button>
-            <img src={currentImage} alt={`Image ${current + 1}`} className="h-[650px] object-cover w-full"/>
+            <button onClick={prevImage} className="absolute left-[2%] top-[50%] z-[40] w-[30px] h-[30px] bg-[white] flex justify-center items-center rounded-[15px] border-2 border-black border-solid transform motion-safe:hover:scale-110 hover:bg-[#289DCC] hover:border-[#063953] hover:text-[#063953]">
+                <MdKeyboardArrowLeft className="text-[25px]" />
+            </button>
+            <img src={currentImage} alt={`Image ${current + 1}`} width={0} height={0} className="h-[650px] object-cover w-full"/>
             {/* {current === 1 && (
                 <div className="absolute top-[20%] left-[10%] bg-white p-6 max-w-[450px]">
                      <h1 className="my-4 text-[2rem] font-bold">Learning that gets you</h1>
@@ -47,7 +50,9 @@ export default function SliderMain({images}:CarouselProps) {
                     </div>
             )} */}
 
-            <button onClick={nextImage} className="absolute right-[2%] top-[50%] z-[40]"><BsArrowRight/></button>
+            <button onClick={nextImage} className="absolute right-[2%] top-[50%] z-[40] w-[30px] h-[30px] bg-[white] flex justify-center items-center rounded-[15px] border-2 border-black border-solid transform motion-safe:hover:scale-110 hover:bg-[#289DCC] hover:border-[#063953] hover:text-[#063953]">
+                <MdKeyboardArrowRight className="text-[25px]" />
+            </button>
 
 
         </div>

@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import myUser from './actions/getUser'
 import getBasketItems from './actions/getBasketItems'
+import TopButton from './(components)/TopButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
           basketItems={basketItems}
           myUser={myCurrentUser}
         />
+        <TopButton />
         {children}
         <Footer />
       </body>
