@@ -8,7 +8,7 @@ import { AiFillLinkedin, AiFillTwitterCircle, AiFillInstagram } from "react-icon
 export default function Footer() {
   return (
     <footer className=" bg-[#289DCC]">
-        <div className="container m-auto pt-6 pb-6 flex flex-row justify-between">
+        <div className="container m-auto pt-[120px] pb-[80px] flex flex-row justify-between">
             <div>
                 <h3 className="text-2xl font-medium mb-2">
                     Thông Tin Liên Hệ
@@ -92,7 +92,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="bg-[#063953] flex justify-center p-4">
+        <div className="bg-[#063953] flex justify-center py-[30px]">
             <p className="text-white text-xl">
                 Trung Tâm Dạy Thêm Học Thêm ABC
             </p>

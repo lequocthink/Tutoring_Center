@@ -1,7 +1,11 @@
 import SliderMain from "./(components)/SliderMain";
 import CourseComponent from "./(components)/CourseComponent";
 import getAllCourses from "./actions/getAllCourses";
+
 import IntroduceFirst from "./(components)/introduceFirst/IntroduceFirst";
+import IntroduceSecond from "./(components)/introduceSecond/IntroduceSecond";
+import IntroduceThird from "./(components)/introduceThird/IntroduceThird";
+import IntroduceFourth from "./(components)/introduceFourth/IntroduceFourth";
 
 const images = [
   "/a.jpg",
@@ -24,9 +28,12 @@ export default async function Home({searchParams}: HomeProps) {
         images={images}
       />
 
-      <IntroduceFirst />
+      <IntroduceFirst searchParams={searchParams} />
+      <IntroduceSecond searchParams={searchParams} />
+      <IntroduceThird />
+      <IntroduceFourth />
 
-      <div>
+      {/* <div>
         <div className="flex flex-wrap px-8">
           {courses.map((item:any) => (
             <CourseComponent
@@ -36,7 +43,7 @@ export default async function Home({searchParams}: HomeProps) {
             />
           ))}
         </div>
-      </div>
+      </div> */}
   </main> 
   )
 }

@@ -1,4 +1,3 @@
-
 import getAllCourses from "@/app/actions/getAllCourses";
 import CourseComponent from "../CourseComponent";
 import Link from "next/link";
@@ -7,13 +6,14 @@ interface Props {
     searchParams:string
 }
 
-export default async function IntroduceFirst(searchParams:Props) {
+
+export default async function IntroduceSecond(searchParams:Props) {
     const courses = await getAllCourses(searchParams);
   return (
-    <div className="bg-white  pt-[100px] pb-[80px]">
+    <div className="bg-gradient-to-r from-green-200 to-blue-200 pt-[100px] pb-[80px]">
         <div className="flex flex-col justify-center p-4 items-center">
             <p className="text-[#063953] text-4xl uppercase font-bold mb-4">
-                Thông báo mới nhất
+                Khóa học mới nhất
             </p>
         </div>
 
