@@ -1,8 +1,6 @@
 'use client';
 import Link from "next/link";
 import Image from "next/image";
-import { MdOutlineWorkspacePremium, MdOutlineDiversity1, MdMenuBook, MdHomeWork } from "react-icons/md";
-import { FaBook } from "react-icons/fa";
 
 
 export default function IntroduceThird() {
@@ -26,7 +24,7 @@ export default function IntroduceThird() {
                 </p>
 
                 <div>
-                    <Link href='/news' className='py-2 px-6 border-black border-[1px]'>Xem thêm</Link>
+                    <Link href='/about' className='py-2 px-6 border-black border-[1px]'>Xem thêm</Link>
                 </div>
             </div>
 

@@ -7,6 +7,7 @@ import IntroduceSecond from "./(components)/introduceSecond/IntroduceSecond";
 import IntroduceThird from "./(components)/introduceThird/IntroduceThird";
 import IntroduceFourth from "./(components)/introduceFourth/IntroduceFourth";
 
+
 const images = [
   "/a.jpg",
   "b.jpg",
