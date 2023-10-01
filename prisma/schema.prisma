@@ -38,3 +38,19 @@ model Course {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String   @db.ObjectId
 }
+
+model News {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  mainTitle    String
+  titleOne     String
+  titleTwo     String
+  titleThree   String
+  titleFour    String
+  contentOne   String
+  contentTwo   String
+  contentThree String
+  contentFour  String
+  imageSrc     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
