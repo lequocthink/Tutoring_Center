@@ -9,48 +9,48 @@ declare global {
 }
 
 interface ImageUploadProps {
-    onChange: (value:string) => void
-    value:string
+    onChange: (value: string) => void
+    value: string
 }
 
-const ImageUpload:React.FC<ImageUploadProps> = ({
+const ImageUpload: React.FC<ImageUploadProps> = ({
     onChange,
     value
 }) => {
 
 
-    const handleUpload = useCallback((result:any) => {
+    const handleUpload = useCallback((result: any) => {
         onChange(result.info.secure_url)
-    },[onChange])
+    }, [onChange])
 
-  return (
-    <CldUploadWidget
-        onUpload={handleUpload}
-        uploadPreset='sdk1kulj'
-        options={{
-            maxFiles:1
-        }}
-    >
+    return (
+        <CldUploadWidget
+            onUpload={handleUpload}
+            uploadPreset='sdk1kulj'
+            options={{
+                maxFiles: 1
+            }}
+        >
 
-        {({open}) => {
-            return (
-                <div onClick={() => open?.()} className='relative cursor-pointer hover:opacity-70 border-dashed border-2  flex flex-col justify-center items-center h-[500px] '>
-                    <TbPhotoPlus/>        
-                    <div className='text-lg'>
-                        Click to upload
-                    </div>
-
-                    {value && (
-                        <div className='absolute inset-0 w-full h-full'>
-                            <Image alt='upload' fill style={{objectFit:'cover'}} src={value}/>
+            {({ open }) => {
+                return (
+                    <div onClick={() => open?.()} className='relative cursor-pointer hover:opacity-70 border-solid border-black border-2  flex flex-col justify-center items-center h-[300px] '>
+                        <TbPhotoPlus />
+                        <div className='text-lg'>
+                            Click to upload
                         </div>
-                    )}
-                </div>
-            )
-        }}
 
-    </CldUploadWidget>
-  )
+                        {value && (
+                            <div className='absolute inset-0 w-full h-full'>
+                                <Image alt='upload' fill style={{ objectFit: 'cover' }} src={value} />
+                            </div>
+                        )}
+                    </div>
+                )
+            }}
+
+        </CldUploadWidget>
+    )
 }
 
 export default ImageUpload

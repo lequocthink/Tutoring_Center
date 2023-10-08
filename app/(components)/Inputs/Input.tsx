@@ -2,14 +2,14 @@
 
 
 interface InputProps {
-    type?:string,
-    value?:string | number,
+    type?: string,
+    value?: string | number,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     name: string
-    textarea?:boolean
-    id:string
-    placeholder?:string
-    big?:boolean
+    textarea?: boolean
+    id: string
+    placeholder?: string
+    big?: boolean
 }
 
 
@@ -22,26 +22,23 @@ export default function Input({
     id,
     placeholder,
     big
-} : InputProps) {
+}: InputProps) {
     return (
-        <input 
-        type={type} 
-        placeholder={placeholder} 
-        id={id}
-        value={value}
-        onChange={onChange}
-        name={name}
-        className={`
-        w-full 
-        p-4 
-        pt-6 
+        <input
+            type={type}
+            placeholder={placeholder}
+            id={id}
+            value={value}
+            onChange={onChange}
+            name={name}
+            className={`
+        mb-[10px]
         font-light
-        bg-white 
-        border-2 
-        outline-none  
+        bg-white   
           text-black 
+          shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5
           ${textarea ? 'w-700px h-500px' : 'w-full'}
-           ${big ? 'w-[700px] pb-[1rem]': ''}`}
+           ${big ? 'w-[700px]' : ''}`}
 
         />
     )

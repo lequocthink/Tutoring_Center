@@ -2,7 +2,7 @@
 import { MdOutlineDashboardCustomize, MdOutlineAdminPanelSettings } from "react-icons/md";
 import { FaUserGraduate, FaUserTie, FaMailBulk } from "react-icons/fa";
 import { HiNewspaper, HiOutlineCreditCard } from "react-icons/hi2";
-import { LiaAddressCard, LiaMailBulkSolid } from "react-icons/lia";
+import { LiaAddressCard } from "react-icons/lia";
 import Link from "next/link";
 
 export default function SideBar() {
