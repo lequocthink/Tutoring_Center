@@ -14,3 +14,4 @@ export type safeNews = Omit<News,"createdAt" | "updatedAt" > & {
     createdAt:string;
     updatedAt:string
 }
+

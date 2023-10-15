@@ -7,6 +7,7 @@ import ImageUpload from "@/app/(components)/Inputs/ImageUpload"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 
+
 interface InitialValue {
     mainTitle: string,
     imageSrc: string,

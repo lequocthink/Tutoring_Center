@@ -10,6 +10,11 @@ import getAllNews from "@/app/actions/getAllNews";
 
 // import { useRouter } from "next/navigation";
 
+// import Link from "next/link";
+
+import NewsDetailClient from "./[newsId]/NewsDetail";
+
+
 
 type newsProps = {
     createdAt: string;
@@ -94,8 +99,8 @@ export default async function Page() {
                     <thead className="">
                         <tr className="sticky z-10 bg-white top-0">
                             <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Name</th>
-                            <th scope="col" className="pl-[360px] py-3 text-left text-xs font-medium text-black uppercase">Create At</th>
-                            <th scope="col" className="translate-x-[-120px] py-3 text-left text-xs font-medium text-black uppercase">Update At</th>
+                            <th scope="col" className="pl-[440px] py-3 text-left text-xs font-medium text-black uppercase">Create At</th>
+                            <th scope="col" className="translate-x-[-140px] py-3 text-left text-xs font-medium text-black uppercase">Update At</th>
                             <th scope="col" className="translate-x-[-20px] px-6 py-3 text-right text-xs font-medium text-black uppercase">Action</th>
                         </tr>
                     </thead>
@@ -113,13 +118,20 @@ export default async function Page() {
 
                                     {news.map((item) => (
                                         <tr key={item.id}>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">{item.mainTitle}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
+                                                <Link href={'/admin/news/' + item.id} className="py-1 px-4 border-black border-[1px] rounded-[12px]">
+
+                                                    {item.mainTitle}
+                                                </Link>
+                                            </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatter.format(Date.parse(item.createdAt))}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatter.format(Date.parse(item.updatedAt))}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
                                             </td>
                                         </tr>
+
+                                        // <NewsDetailClient key={item.id} data={item} currentUser={null} />
                                     ))}
                                 </tbody>
                             </table>
