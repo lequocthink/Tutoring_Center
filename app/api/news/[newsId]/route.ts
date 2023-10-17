@@ -57,21 +57,27 @@ export async function PUT(
         }
     })
 
-    // const course = await prisma.news.create({
-    //     data: {
-    //         mainTitle,
-    //         titleOne,
-    //         titleTwo,
-    //         titleThree,
-    //         titleFour,
-    //         contentOne,
-    //         contentTwo,
-    //         contentThree,
-    //         imageSrc,
-    //         contentFour
-    //     }
-    // })
-
     return NextResponse.json(updated)
 
+}
+
+export async function DELETE(
+    request:Request, {
+        params
+    }: {params:IParams}
+) {
+    const {newsId} = params
+
+
+    if(!newsId || typeof newsId !== 'string') {
+        throw new Error('Invalid Id')
+    }
+
+    const course = await prisma.news.deleteMany({
+        where: {
+            id:newsId
+        }
+    });
+
+    return NextResponse.json(course)
 }

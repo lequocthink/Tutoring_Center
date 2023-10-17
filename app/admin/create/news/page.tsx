@@ -35,52 +35,12 @@ const initialValue: InitialValue = {
 
 }
 
-//   interface InitialValue {
-//     // name: string,
-//     // imageSrc: string,
-//     // author: string,
-//     // price: number,
-//     // videoSrc: string,
-//     // description: string
-
-//     mainTitle:    String,
-//     titleOne:     String,
-//     titleTwo:     String,
-//     titleThree:   String,
-//     titleFour:    String,
-//     contentOne:   String,
-//     contentTwo:   String,
-//     contentThree: String,
-//     imageSrc:String,
-//     contentFour:  String
-// }
-
-// const initialValue: InitialValue = {
-//     mainTitle: '',
-//     titleOne: '',
-//     titleTwo: '',
-//     titleThree: '',
-//     titleFour: '',
-//     contentOne: '',
-//     contentTwo: '',
-//     contentThree: '',
-//     imageSrc:'',
-//     contentFour: ''
-// }
-
-// enum PATH {
-//     SPECS = 0,
-//     VIDEOS = 1,
-// }
-
 export default function page() {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [state, setState] = useState(initialValue)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [loading, setLoading] = useState(false)
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    // const [path, setPath] = useState(PATH.SPECS);
 
 
 
@@ -109,7 +69,7 @@ export default function page() {
                 setState(initialValue);
                 // router.push('/admin/news')
                 router.refresh()
-                router.replace('/admin/createnews')
+                router.replace('/admin/create/news')
 
             })
             .catch((err) => {

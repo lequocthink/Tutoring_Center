@@ -26,7 +26,10 @@ export default async function page() {
 
     return (
         <>
-            <div className="flex gap-6 px-12 py-8">
+            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-2 mb-[40px] mt-[40px]">
+                <h1 className="text-center uppercase text-[20px]">Thông tin về trung tâm</h1>
+            </div>
+            <div className="container flex flex-row flex-wrap m-auto">
                 {news.map((item) => (
                     <NewsClient
                         data={item}

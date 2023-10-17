@@ -6,6 +6,7 @@ import Button from "../(components)/Button"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { FormEvent, useState } from "react"
+import Link from "next/link"
 
 interface NewsProps {
     data: safeNews;
@@ -38,34 +39,32 @@ export default function NewsClient({ data }: NewsProps) {
     // }
 
     return (
-        <div className="w-[400px] h-[300px]">
-            <div>
-                <Image src={data.imageSrc} alt="Image" width={400} height={200} className="
-              object-cover 
-              group-hover:scale-110 
-              transition
-              h-[200px]
-              w-[400px]
+        <div className="w-[726px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
+
+
+
+            <div className="flex flex-row items-start gap-1">
+                <div className="w-[300px] p-5">
+                    <Image src={data.imageSrc} alt="News Image" width={500} height={100} className="
+                        rounded-[10px]
+                        w-[700px]
+                        h-[150px]
+                        border-black border-[1px]
             "/>
-            </div>
-
-
-            <div className="flex flex-col items-start gap-1">
-                <div className="font-light flex items-center gap-8">
-                    <span>{data.mainTitle}</span>
-                    <span>{data.createdAt}</span>
                 </div>
-
-
-                <div className="w-full gap-2 flex">
-                    {/* <Button type='submit' disabled={isLoading} label="Delete" onClick={onDelete} /> */}
-                    <Button type='button' label="View" onClick={() => router.push(`/mycourses/${data.id}`)} />
-
+                <div className="flex flex-col font-light items-start p-5 justify-around my-auto">
+                    <h3 className="text-[20px] mb-5">{data.mainTitle}</h3>
+                    {/* <span>{data.titleOne}</span> */}
+                    {/* <span>{data.createdAt}</span> */}
+                    <Link href={'/news/' + data.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Xem chi tiết
+                    </Link>
                 </div>
 
 
             </div>
 
         </div>
+
     )
 }
