@@ -12,10 +12,10 @@ export default async function page({ params }: { params: IParams }) {
     const news = await getNewsById(params);
 
     return (
-        <div className="container m-auto">
+        <div className="container m-auto shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 mb-[40px]">
             <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[100%] py-2 mb-[20px] mt-[50px]">
 
-                <h1 className="text-center uppercase text-[70px]">{news?.mainTitle}</h1>
+                <h1 className="text-center uppercase text-[60px]">{news?.mainTitle}</h1>
             </div>
             <div>
                 <img src={news?.imageSrc} alt="" className="m-auto" />
