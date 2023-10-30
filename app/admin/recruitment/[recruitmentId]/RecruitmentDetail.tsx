@@ -81,7 +81,7 @@ export default function RecruitmentDetail({ data, id }: RecruitmentProps) {
             <form className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4" >
                 <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-2 mb-[20px]">
 
-                    <h1 className="text-center uppercase text-[20px]">News Detail</h1>
+                    <h1 className="text-center uppercase text-[20px]">Chi tiết tin tuyển dụng</h1>
                 </div>
                 <div className="grid grid-cols-12">
 

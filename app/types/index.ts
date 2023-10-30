@@ -1,4 +1,4 @@
-import { Course, User, News, Recruitment} from "@prisma/client"
+import { Course, User, News, Recruitment, Contact} from "@prisma/client"
 
 
 export type SafeUser = Omit<User,"createdAt" | "updatedAt" > & {
@@ -18,5 +18,9 @@ export type safeNews = Omit<News,"createdAt" | "updatedAt" > & {
 export type safeRecruitment = Omit<Recruitment,"createdAt" | "updatedAt" > & {
     createdAt:string;
     updatedAt:string
+}
+
+export type safeContact = Omit<Contact,"createdAt"> & {
+    createdAt:string;
 }
 

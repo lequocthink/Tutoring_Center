@@ -15,7 +15,7 @@ export default async function RootLayout({
 
     return (
         <div className="grid grid-cols-12">
-            <div className="col-span-2 pt-8 pl-8">
+            <div className="col-span-2 pt-8 pl-8 mb-[20px]">
                 <SideBar />
             </div>
             <div className="col-span-10 p-8">

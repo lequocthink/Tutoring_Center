@@ -18,7 +18,8 @@ export async function PUT(
     const {
         name,
         email,
-        password
+        hashedPassword,
+        pass,
     } = json
     const currentUser = await myUser()
 
@@ -31,19 +32,55 @@ export async function PUT(
         throw new Error('Invalid Id')
     }
 
-    const hashedPasswordupdated = await bcrypt.hash(password, 12);
+    let updated:any;
+    if(pass === false){
+        updated = await prisma.user.update({
+            where: {
+                id: userId,
+            },
+            data: {
+                name,
+                email,
+                updatedAt: new Date()
+            }
+        })
+    }
+    else {
 
-    const updated = await prisma.user.update({
-        where: {
-            id: userId,
-        },
-        data: {
-            name,
-            email,
-            hashedPassword:hashedPasswordupdated
-        }
-    })
+        const hashedPasswordupdated = await bcrypt.hash(hashedPassword, 12);
+
+        updated = await prisma.user.update({
+            where: {
+                id: userId,
+            },
+            data: {
+                hashedPassword: hashedPasswordupdated,
+                updatedAt: new Date(),
+            }
+        })
+    }
 
     return NextResponse.json(updated)
+}
 
+
+export async function DELETE(
+    request:Request, {
+        params
+    }: {params:IParams}
+) {
+    const {userId} = params
+
+
+    if(!userId || typeof userId !== 'string') {
+        throw new Error('Invalid Id')
+    }
+
+    const course = await prisma.user.deleteMany({
+        where: {
+            id:userId
+        }
+    });
+
+    return NextResponse.json(course)
 }

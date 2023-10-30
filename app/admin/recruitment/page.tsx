@@ -52,7 +52,7 @@ export default async function Page() {
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatter.format(Date.parse(item.createdAt))}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatter.format(Date.parse(item.updatedAt))}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <Link href={'/admin/news/' + item.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                <Link href={'/admin/recruitment/' + item.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 
                                                     Chi tiết
                                                 </Link>
