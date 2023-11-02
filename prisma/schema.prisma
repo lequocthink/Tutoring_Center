@@ -16,15 +16,21 @@ datasource db {
 }
 
 model User {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
   name           String
-  email          String   @unique
+  email          String    @unique
   hashedPassword String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  basketIds      String[] @db.ObjectId
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  basketIds      String[]  @db.ObjectId
   course         Course[]
   role           String
+  gender         String?
+  avatar         String?
+  phone          String?
+  address        String?
+  birth          DateTime?
+  status         String?
 }
 
 model Course {

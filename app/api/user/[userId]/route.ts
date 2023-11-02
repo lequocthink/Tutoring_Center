@@ -18,6 +18,10 @@ export async function PUT(
     const {
         name,
         email,
+        phone,
+        address,
+        gender,
+        birth,
         hashedPassword,
         pass,
     } = json
@@ -41,6 +45,10 @@ export async function PUT(
             data: {
                 name,
                 email,
+                phone,
+                address,
+                gender,
+                birth,
                 updatedAt: new Date()
             }
         })

@@ -23,20 +23,21 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
 
 
 
-    const news = data;
+    const user = data;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [state, setState] = useState(news)
+    const [state, setState] = useState(user)
+    const [password, setPassword] = useState('')
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [loading, setLoading] = useState(false)
     // eslint-disable-next-line react-hooks/rules-of-hooks
     // const [path, setPath] = useState(PATH.SPECS);
 
-
-
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+
+    // document.getElementById("myDate").defaultValue = "2014-02-09";
 
     const setCustomValue = (id: any, value: any) => {
         setState((prevState) => ({
@@ -67,20 +68,29 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
 
     const changePassword = (e: FormEvent) => {
 
-        e.preventDefault();
-        axios.put(`/api/user/${myId}`, {
-            ...state, pass: true
-        })
-            .then(() => {
-                router.refresh()
-                router.replace('/admin/adminaccount')
+        if (state.hashedPassword !== password) {
+            alert("Mật khẩu không trùng khớp");
+            e.preventDefault();
+
+        }
+        else {
+
+            e.preventDefault();
+            axios.put(`/api/user/${myId}`, {
+                ...state, pass: true
             })
-            .catch((err: any) => {
-                throw new Error(err)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+                .then(() => {
+                    router.refresh()
+                    router.replace('/admin/adminaccount')
+                })
+                .catch((err: any) => {
+                    throw new Error(err)
+                })
+                .finally(() => {
+                    setLoading(false)
+                })
+        }
+
     }
 
     const onDelete = (e: FormEvent) => {
@@ -101,10 +111,14 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
             })
     }
 
+    var curr = new Date();
+    curr.setDate(curr.getDate() + 3);
+    var date = curr.toISOString().substring(0, 10);
+
     return (
 
         <div className="">
-            <Link href={'/admin/adminaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center fixed mt-4 ml-4">
+            <Link href={'/admin/adminaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 ml-4 absolute">
                 <BiArrowBack className="text-[25px]" />
             </Link>
 
@@ -120,6 +134,26 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
                         <Input big placeholder='' id='email' type='text' value={state.email} name='email' onChange={handleChange} />
                         <p className="mb-[10px]">Admin name:</p>
                         <Input big placeholder='' id='name' type='text' value={state.name} name='name' onChange={handleChange} />
+                        <p className="mb-[10px]">Phone number:</p>
+                        <Input big placeholder='' id='phone' type='text' value={state.phone} name='phone' onChange={handleChange} />
+                        <p className="mb-[10px] text-[20px]">Address:</p>
+                        <Input big placeholder='' id='address' type='text' value={state.address} name='address' onChange={handleChange} />
+                        <div className="flex flex-row mb-[10px]">
+                            <div className="flex flex-row items-center mr-[40px]">
+                                <input defaultChecked={state.gender == "nam" ? true : false} type="radio" id="male" name="gender" value="nam" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "nam" }))} />
+                                <label htmlFor="male" className="text-[20px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "nam" }))}>Nam</label>
+                            </div>
+                            <div className="flex flex-row items-center mr-[40px]">
+                                <input defaultChecked={state.gender == "nữ" ? true : false} type="radio" id="female" name="gender" value="nữ" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "nữ" }))} />
+                                <label htmlFor="female" className="text-[20px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "nữ" }))}>Nữ</label>
+                            </div>
+                            <div className="flex flex-row items-center mr-[40px]">
+                                <input defaultChecked={state.gender == "khác" ? true : false} type="radio" id="other" name="gender" value="Khác" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "khác" }))} />
+                                <label htmlFor="other" className="text-[20px]" onClick={() => setState((prevState) => ({ ...prevState, "gender": "khác" }))}>Khác</label>
+                            </div>
+                        </div>
+                        <p className="mb-[10px] text-[20px]">Birth:</p>
+                        <input type="date" id="birth" name="birth" defaultValue={state?.birth.toISOString().substring(0, 10)} className="mb-[10px] w-[300px] h-[40px] bg-black-50 border border-gray-600 text-black-900 rounded-lg p-2 text-[20px]" onChange={(event) => setState((prevState) => ({ ...prevState, [event.target.name]: new Date(`${event.target.value}T00:00:00Z`) }))} />
                         <Button
                             label="Cập nhật thông tin"
                             onClick={onSubmit}
@@ -127,6 +161,8 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
                         />
                         <p className="mb-[10px]">Admin password:</p>
                         <Input big placeholder='' id='hashedPassword' type='password' name='hashedPassword' onChange={handleChange} />
+                        <p className="mb-[10px] text-[20px]">Repeat Password:</p>
+                        <Input big placeholder='' id='password' type='password' name='password' onChange={(event) => { setPassword(event.target.value) }} />
                         <Button
                             label="Đổi mật khẩu"
                             onClick={changePassword}
