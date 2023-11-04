@@ -1,4 +1,3 @@
-
 import AdminDetailClient from "./AdminDetailClient";
 import getAdminById from "@/app/actions/user/getAdminById";
 

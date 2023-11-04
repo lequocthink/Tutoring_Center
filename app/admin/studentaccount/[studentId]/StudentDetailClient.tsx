@@ -1,21 +1,28 @@
 'use client'
+
 import axios from "axios"
 import { useRouter } from "next/navigation"
-import { ChangeEvent, FormEvent, useState } from "react"
-import { SafeUser } from "@/app/types"
+import { ChangeEvent, FormEvent, useEffect, useState } from "react"
+import { SafeUser, safeNews } from "@/app/types"
+import ImageUpload from "@/app/(components)/Inputs/ImageUpload"
 import Input from "@/app/(components)/Inputs/Input"
+import Button from "@/app/(components)/Button"
 import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
 
-interface AdminProps {
+interface StaffProps {
     data: SafeUser;
     currentUser: SafeUser | null;
     id: any
 }
 
-export default function AdminDetailClient({ data, id }: AdminProps) {
+export default function StudentDetailClient({ data, id }: StaffProps) {
 
-    const myId = String(JSON.parse(id).adminId);
+
+    const myId = String(JSON.parse(id).studentId);
+
+
+
     const user = data;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,10 +30,14 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
     const [password, setPassword] = useState('')
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [loading, setLoading] = useState(false)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // const [path, setPath] = useState(PATH.SPECS);
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setState({ ...state, [event.target.name]: event.target.value })
     }
+
+    // document.getElementById("myDate").defaultValue = "2014-02-09";
 
     const setCustomValue = (id: any, value: any) => {
         setState((prevState) => ({
@@ -45,7 +56,7 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
         })
             .then(() => {
                 router.refresh()
-                router.replace('/admin/adminaccount')
+                router.replace('/admin/studentaccount')
             })
             .catch((err: any) => {
                 throw new Error(err)
@@ -63,13 +74,14 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
 
         }
         else {
+
             e.preventDefault();
             axios.put(`/api/user/${myId}`, {
                 ...state, pass: true
             })
                 .then(() => {
                     router.refresh()
-                    router.replace('/admin/adminaccount')
+                    router.replace('/admin/studentaccount')
                 })
                 .catch((err: any) => {
                     throw new Error(err)
@@ -78,18 +90,22 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
                     setLoading(false)
                 })
         }
+
     }
 
     const onDelete = (e: FormEvent) => {
         setLoading(true)
         e.preventDefault();
-        const isConfirmed = confirm('Bạn có chắc chắn muốn xóa tài khoản admin ' + state.email + ' ?');
+
+        const isConfirmed = confirm('Bạn có chắc chắn muốn xóa tài khoản học viên ' + state.email + ' ?');
 
         if (isConfirmed) {
+
             axios.delete(`/api/user/${myId}`)
                 .then(() => {
                     router.refresh();
-                    router.replace('/admin/adminaccount')
+                    // router.refresh()
+                    router.replace('/admin/studentaccount')
                 })
                 .catch((error) => {
                     throw new Error(error)
@@ -100,6 +116,7 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
         }
         else {
             setLoading(false);
+
             return;
         }
 
@@ -107,17 +124,23 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
 
     var curr = new Date();
     curr.setDate(curr.getDate() + 3);
+    var date = curr.toISOString().substring(0, 10);
+
 
     return (
+
         <div className="">
-            <Link href={'/admin/adminaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 ml-4 absolute">
+            <Link href={'/admin/studentaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 ml-4 absolute">
                 <BiArrowBack className="text-[25px]" />
             </Link>
+
             <form className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4" >
                 <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-2 mb-[20px]">
-                    <h1 className="text-center uppercase text-[20px]">Thông Tin Admin</h1>
+
+                    <h1 className="text-center uppercase text-[20px]">Thông Tin Học Viên</h1>
                 </div>
                 <div className="grid grid-cols-12">
+
                     <div className="col-span-6 p-2 col-start-4">
                         <p className="mb-[10px] text-[20px]">Email:</p>
                         <Input big placeholder='' id='email' type='text' value={state.email} name='email' onChange={handleChange} />
@@ -148,17 +171,20 @@ export default function AdminDetailClient({ data, id }: AdminProps) {
                         </button>
                         <p className="mb-[10px] text-[20px]">Mật khẩu:</p>
                         <Input big placeholder='' id='hashedPassword' type='password' name='hashedPassword' onChange={handleChange} />
-                        <p className="mb-[10px] text-[20px]">Nhập lại:</p>
+                        <p className="mb-[10px] text-[20px]">Nhập lại mật khẩu:</p>
                         <Input big placeholder='' id='password' type='password' name='password' onChange={(event) => { setPassword(event.target.value) }} />
                         <button type="submit" className="mb-[10px] block transition disabled:cursor-not-allowed relative bg-yellow-400 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded w-full" disabled={loading} onClick={changePassword}>
                             Đổi mật khẩu
                         </button>
                         <button type="submit" className="block transition disabled:cursor-not-allowed relative bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-4 rounded w-full" disabled={loading} onClick={onDelete}>
-                            Xóa admin
+                            Xóa học viên
                         </button>
                     </div>
                 </div>
+
+
             </form>
+
         </div>
     )
 }

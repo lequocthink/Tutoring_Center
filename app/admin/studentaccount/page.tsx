@@ -1,169 +1,85 @@
+// "use client"
+import Link from "next/link";
+// import getAllAdmin from "@/app/actions/user/getAllAdmin";
+// import getAllStaff from "@/app/actions/user/getAllStaff";
+import getAllStudent from "@/app/actions/user/getAllStudent";
 
-export default function page() {
+
+export default async function Page() {
+
+
+    const student = await getAllStudent()
+
+    let formatter = new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+    });
+
+
+
     return (
 
         <div>
-            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-2">
-
-                <button type="submit" className="py-1 px-4 border-black border-[1px] rounded-[12px]">Add new student</button>
-            </div>
-            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-
-
-                <table className="min-w-full divide-y divide-gray-300 ">
-                    <thead className="">
-                        <tr className="sticky z-10 bg-white top-0">
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Name</th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Age</th>
-                            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Address</th>
-                            <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-black uppercase">Action</th>
-                        </tr>
-                    </thead>
-                    {/* <tbody className="bg-transparent">
-        <tr>
-            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-transparent">John Brown</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-transparent">45</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-transparent">New York No. 1 Lake Park</td>
-            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium text-transparent">
-                delete
-            </td>
-        </tr>
-    </tbody> */}
-
-                </table>
+            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
+                <Link href="/admin/create/studentaccount" className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded">Tạo học viên</Link>
             </div>
             <div className="flex flex-col shadow-[0px_20px_20px_10px_#00000024] h-[520px] pb-2 pt-2 pr-2">
                 <div className="-m-1.5 overflow-x-auto">
                     <div className="p-1.5 min-w-full inline-block align-middle">
                         <div className="overflow-hidden">
+                            {
+                                student.length > 0 &&
 
-                            <table className="min-w-full divide-y divide-gray-300">
-                                {/* <thead className="">
-                    <tr className="sticky z-10 bg-white top-0">
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Name</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Age</th>
-                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black uppercase">Address</th>
-                        <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-black uppercase">Action</th>
-                    </tr>
-                    <tr className="">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a className="text-blue-500 hover:text-blue-700" href="#"></a>
-                        </td>
-                    </tr>
-                </thead> */}
-                                <tbody className="divide-y divide-gray-300">
-                                    {/* <div className="pt-[40px]"></div> */}
-                                    {/* <tr className="">
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a className="text-blue-500 hover:text-blue-700" href="#"></a>
-                        </td>
-                    </tr> */}
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">John Brown</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">45</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">New York No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
+                                <table className="min-w-full divide-y divide-gray-300">
+                                    <thead className="">
+                                        <tr className="sticky z-10 bg-white top-0">
+                                            <th scope="col" className="px-6 py-4 text-left text-[20px] font-medium text-black uppercase">Email</th>
+                                            <th scope="col" className="px-6 py-4 text-left text-[20px] font-medium text-black uppercase">Tên</th>
+                                            <th scope="col" className="px-6 py-4 text-left text-[20px] font-medium text-black uppercase">Ngày tạo</th>
+                                            <th scope="col" className="px-6 py-4 text-right text-[20px] font-medium text-black uppercase">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y z-9 divide-gray-300">
+                                        {
+                                            student.map((item) => (
+                                                <tr key={item.id}>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
+                                                        <Link href={'/admin/studentaccount/' + item.id} className="py-1 px-4 border-black border-[1px] rounded-[12px]">
 
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Jim Green</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">27</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">London No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
+                                                            {item.email}
+                                                        </Link>
+                                                    </td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.name}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatter.format(Date.parse(item.createdAt))}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                        <Link href={'/admin/studentaccount/' + item.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded">
 
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">Joe Black</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">31</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sidney No. 1 Lake Park</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a className="text-blue-500 hover:text-blue-700" href="#">Delete</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                            Xem chi tiết
+                                                        </Link>
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+
+                            }
+
+                            {
+                                student.length === 0 && (
+                                    <>
+                                        <div className="w-[100%]">
+                                            <p className="text-center uppercase text-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[750px] py-2 mb-[20px] mt-[50px]">
+                                                Chưa có tài khoản học viên nào được tạo
+                                            </p>
+                                        </div>
+                                    </>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

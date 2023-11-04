@@ -1,11 +1,14 @@
 'use client'
 
 import { ChangeEvent, FormEvent, useState } from "react"
+import Button from "@/app/(components)/Button"
 import Input from "@/app/(components)/Inputs/Input"
+import ImageUpload from "@/app/(components)/Inputs/ImageUpload"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
+
 
 interface InitialValue {
     name: string,
@@ -25,7 +28,7 @@ const initialValue: InitialValue = {
     email: '',
     password: '',
     fpassword: '',
-    role: 'admin',
+    role: 'user',
     gender: '',
     phone: '',
     address: '',
@@ -40,6 +43,8 @@ export default function page() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [loading, setLoading] = useState(false)
 
+
+
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setState({ ...state, [event.target.name]: event.target.value })
     }
@@ -50,6 +55,7 @@ export default function page() {
             [id]: value
         }))
     }
+
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter()
@@ -62,13 +68,15 @@ export default function page() {
         else {
             setLoading(true)
             event.preventDefault();
+
+
             axios.post('/api/register', state)
                 .then(() => {
                     router.refresh()
                 })
                 .then(() => {
                     setTimeout(() => {
-                        router.push('/admin/adminaccount')
+                        router.push('/admin/studentaccount')
                     }, 2500)
 
                 })
@@ -85,14 +93,17 @@ export default function page() {
 
     return (
         <div className="">
-            <Link href={'/admin/adminaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 ml-4 absolute">
+            <Link href={'/admin/studentaccount/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 ml-4 absolute">
                 <BiArrowBack className="text-[25px]" />
             </Link>
+
             <form className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4" >
                 <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-2 mb-[20px]">
-                    <h1 className="text-center uppercase text-[20px]">Tạo Admin</h1>
+
+                    <h1 className="text-center uppercase text-[20px]">Tạo Học Viên</h1>
                 </div>
                 <div className="grid grid-cols-12">
+
                     <div className="col-span-6 p-2 col-start-4">
                         <p className="mb-[10px] text-[20px]">Email:</p>
                         <Input big placeholder='Hãy nhập email...' id='email' type='text' value={state.email} name='email' onChange={handleChange} />
@@ -124,11 +135,14 @@ export default function page() {
                         <p className="mb-[10px] text-[20px]">Ngày sinh:</p>
                         <input type="date" id="birth" name="birth" className="mb-[10px] w-[300px] h-[40px] bg-black-50 border border-gray-600 text-black-900 rounded-lg p-2 text-[20px]" onChange={(event) => setState((prevState) => ({ ...prevState, [event.target.name]: new Date(`${event.target.value}T00:00:00Z`) }))} />
                         <button type="submit" className=" block transition disabled:cursor-not-allowed relative bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded w-full" disabled={loading} onClick={onSubmit}>
-                            Tạo Admin
+                            Tạo Học Viên
                         </button>
                     </div>
                 </div>
+
+
             </form>
+
         </div>
     )
 }
