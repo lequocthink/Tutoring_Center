@@ -24,6 +24,8 @@ export async function PUT(
         birth,
         hashedPassword,
         pass,
+        avatar,
+        status,
     } = json
     const currentUser = await myUser()
 
@@ -49,6 +51,8 @@ export async function PUT(
                 address,
                 gender,
                 birth,
+                avatar,
+                status,
                 updatedAt: new Date()
             }
         })

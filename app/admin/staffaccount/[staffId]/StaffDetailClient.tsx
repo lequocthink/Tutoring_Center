@@ -97,7 +97,7 @@ export default function StaffDetailClient({ data, id }: StaffProps) {
         setLoading(true)
         e.preventDefault();
 
-        const isConfirmed = confirm('Bạn có chắc chắn muốn xóa tài khoản nhân viên ' + state.email + ' ?');
+        const isConfirmed = confirm('Bạn có chắc chắn muốn xóa tài khoản giáo viên ' + state.email + ' ?');
 
         if (isConfirmed) {
 
@@ -137,11 +137,15 @@ export default function StaffDetailClient({ data, id }: StaffProps) {
             <form className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4" >
                 <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-2 mb-[20px]">
 
-                    <h1 className="text-center uppercase text-[20px]">Thông Tin Nhân Viên</h1>
+                    <h1 className="text-center uppercase text-[20px]">Thông Tin Giáo Viên</h1>
                 </div>
                 <div className="grid grid-cols-12">
 
                     <div className="col-span-6 p-2 col-start-4">
+                        <p className="mb-[10px] text-[20px]">Ảnh đại diện người dùng:</p>
+                        <div className="w-[300px] relative left-[50%] translate-x-[-50%]">
+                            <ImageUpload value={state.avatar} onChange={(value) => setCustomValue('avatar', value)} />
+                        </div>
                         <p className="mb-[10px] text-[20px]">Email:</p>
                         <Input big placeholder='' id='email' type='text' value={state.email} name='email' onChange={handleChange} />
                         <p className="mb-[10px] text-[20px]">Tên:</p>

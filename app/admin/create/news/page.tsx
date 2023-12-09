@@ -13,13 +13,13 @@ interface InitialValue {
     mainTitle: string,
     imageSrc: string,
     titleOne: string,
-    titleTwo: String,
+    titleTwo: string,
     titleThree: string,
     titleFour: string,
-    contentOne: String,
-    contentTwo: String,
-    contentThree: String,
-    contentFour: String
+    contentOne: string,
+    contentTwo: string,
+    contentThree: string,
+    contentFour: string
 }
 
 const initialValue: InitialValue = {

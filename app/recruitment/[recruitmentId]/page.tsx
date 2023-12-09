@@ -4,7 +4,8 @@ import Image from "next/image";
 import { AiFillDollarCircle, AiOutlineFieldTime, AiOutlineSolution, AiOutlineTeam } from "react-icons/ai";
 import { BsPersonVcard, BsPersonWorkspace } from "react-icons/bs";
 import { BiSolidMap, BiTimeFive, BiTimer, BiSolidGraduation } from "react-icons/bi";
-
+import { BiArrowBack } from "react-icons/bi";
+import Link from "next/link";
 
 interface IParams {
     recruitmentId?: string
@@ -25,8 +26,10 @@ export default async function page({ params }: { params: IParams }) {
 
     return (
         <div className="container m-auto shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 mb-[40px] mt-5">
-
-            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 flex items-center">
+            <Link href={'/recruitment/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 absolute">
+                <BiArrowBack className="text-[25px]" />
+            </Link>
+            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 flex items-center mt-[70px]">
                 <div className="border-black border-[2px] p-3 rounded-full">
                     <Image src="/logo.png" alt="Logo" width={120} height={120} />
 
@@ -53,7 +56,7 @@ export default async function page({ params }: { params: IParams }) {
                             </div>
                         </div>
 
-                        <div className="flex justify-center items-center">
+                        <div className="flex items-center">
                             <BiSolidMap className="text-[45px] mr-2 text-[#289DCC]" />
                             <p className="text-[20px]">
                                 Địa điểm làm việc: {recruitment?.location}

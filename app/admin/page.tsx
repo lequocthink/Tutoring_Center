@@ -1,16 +1,34 @@
-"use client";
+// "use client";
 import Link from "next/link";
 import { MdOutlineDashboardCustomize, MdOutlineAdminPanelSettings } from "react-icons/md";
 import { FaUserGraduate, FaUserTie, FaMailBulk } from "react-icons/fa";
 import { HiNewspaper, HiOutlineCreditCard } from "react-icons/hi2";
 import { LiaAddressCard, LiaMailBulkSolid } from "react-icons/lia";
+import getAllAdmin from "@/app/actions/user/getAllAdmin";
+import getAllStaff from "@/app/actions/user/getAllStaff";
+import getAllStudent from "@/app/actions/user/getAllStudent";
+import getAllNews from "@/app/actions/getAllNews";
+import getAllCourses from "@/app/actions/getAllCourses";
+import getAllRecruitment from "@/app/actions/recruitment/getAllRecruitment";
+import getAllContact from "@/app/actions/contact/getAllContact";
 
-export default function page() {
+
+
+
+export default async function page() {
+    const admin = await getAllAdmin();
+    const staff = await getAllStaff();
+    const student = await getAllStudent();
+    const news = await getAllNews();
+    const courses = await getAllCourses("");
+    const recruitment = await getAllRecruitment();
+    const contact = await getAllContact();
+
     return (
         <div>
             <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[350px] py-3 mb-[40px]">
 
-                <h1 className="text-center uppercase text-[25px]">Dashboard</h1>
+                <h1 className="text-center uppercase text-[25px]">Thống kê</h1>
             </div>
             <div className="grid grid-cols-12">
                 <div className="shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] w-[300px] h-[150px] flex items-center mb-[40px] col-span-4 mx-auto">
@@ -25,7 +43,7 @@ export default function page() {
                                 Admin
                             </h2>
                             <p>
-                                2 Member
+                                {admin.length} Tài khoản
                             </p>
                         </div>
                     </Link>
@@ -41,10 +59,10 @@ export default function page() {
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
 
-                                Staff
+                                giáo viên
                             </h2>
                             <p>
-                                50 Member
+                                {staff.length} Tài khoản
                             </p>
                         </div>
                     </Link>
@@ -60,10 +78,10 @@ export default function page() {
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
 
-                                student
+                                học viên
                             </h2>
                             <p>
-                                150 Member
+                                {student.length} Tài khoản
                             </p>
                         </div>
                     </Link>
@@ -79,10 +97,10 @@ export default function page() {
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
 
-                                News
+                                Tin tức
                             </h2>
                             <p>
-                                8 posts
+                                {news.length} Bài đăng
                             </p>
                         </div>
                     </Link>
@@ -97,10 +115,10 @@ export default function page() {
                         </div>
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
-                                Courses
+                                Khóa học
                             </h2>
                             <p>
-                                8 Course
+                                {courses.length} Khóa học
                             </p>
                         </div>
                     </Link>
@@ -114,10 +132,10 @@ export default function page() {
                         </div>
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
-                                Recruitment
+                                Tuyển dụng
                             </h2>
                             <p>
-                                4 posts
+                                {recruitment.length} Bài đăng
                             </p>
                         </div>
                     </Link>
@@ -132,10 +150,10 @@ export default function page() {
                         </div>
                         <div>
                             <h2 className="text-center uppercase text-[20px]">
-                                Contact
+                                Phản hồi
                             </h2>
                             <p>
-                                4 messages
+                                {contact.length} Tin nhắn
                             </p>
                         </div>
                     </Link>

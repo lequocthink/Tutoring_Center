@@ -23,7 +23,6 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   basketIds      String[]  @db.ObjectId
-  course         Course[]
   role           String
   gender         String?
   avatar         String?
@@ -34,16 +33,43 @@ model User {
 }
 
 model Course {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  imageSrc     String
+  description  String
+  price        String
+  teacherId    String[]
+  studentId    String[]
+  transcriptId String[]
+  comment      String[]
+  scheduleId   String
+  location     String
+  createdAt    DateTime @default(now())
+}
+
+model Transcript {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
+  userId      String
+  courseId    String
+  course      String
+  student     String
+  testOnline  String[]
+  testOffline String[]
+  comment     String[]
+  evaluate    String
   createdAt   DateTime @default(now())
-  imageSrc    String
-  videoSrc    String
-  author      String
-  price       String
-  description String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId      String   @db.ObjectId
+}
+
+model Schedule {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  monday    String[]
+  tuesday   String[]
+  wednesday String[]
+  thursday  String[]
+  friday    String[]
+  saturday  String[]
+  sunday    String[]
+  createdAt DateTime @default(now())
 }
 
 model News {

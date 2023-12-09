@@ -17,9 +17,6 @@ export default async function page({ params }: { params: IParams }) {
 
     return (
         <ContactDetail data={contact} currentUser={null} id={id} />
-        // <h1>
-        //     abv
-        // </h1>
     )
 
 }

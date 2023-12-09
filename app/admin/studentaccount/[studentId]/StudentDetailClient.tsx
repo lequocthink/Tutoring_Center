@@ -142,6 +142,11 @@ export default function StudentDetailClient({ data, id }: StaffProps) {
                 <div className="grid grid-cols-12">
 
                     <div className="col-span-6 p-2 col-start-4">
+                        <p className="mb-[10px] text-[20px]">Ảnh đại diện người dùng:</p>
+
+                        <div className="w-[300px] relative left-[50%] translate-x-[-50%]">
+                            <ImageUpload value={state.avatar} onChange={(value) => setCustomValue('avatar', value)} />
+                        </div>
                         <p className="mb-[10px] text-[20px]">Email:</p>
                         <Input big placeholder='' id='email' type='text' value={state.email} name='email' onChange={handleChange} />
                         <p className="mb-[10px] text-[20px]">Tên:</p>

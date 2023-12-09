@@ -39,7 +39,7 @@ export default function NewsClient({ data }: NewsProps) {
     // }
 
     return (
-        <div className="w-[726px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
+        <div className="w-[600px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
 
 
 

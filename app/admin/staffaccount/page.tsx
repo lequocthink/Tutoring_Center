@@ -24,7 +24,7 @@ export default async function Page() {
 
         <div>
             <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
-                <Link href="/admin/create/staffaccount" className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded">Tạo nhân viên</Link>
+                <Link href="/admin/create/staffaccount" className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-4 rounded">Tạo giáo viên</Link>
             </div>
             <div className="flex flex-col shadow-[0px_20px_20px_10px_#00000024] h-[520px] pb-2 pt-2 pr-2">
                 <div className="-m-1.5 overflow-x-auto">

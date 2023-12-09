@@ -10,7 +10,7 @@ export default function SideBar() {
         <div className="shadow-[0px_20px_20px_10px_#00000024] p-4">
             <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mb-6">
 
-                <h1 className="text-center uppercase text-[25px]">Admin</h1>
+                <h1 className="text-center uppercase text-[25px]">Quản lý</h1>
             </div>
             <div>
                 <div className="mb-3">
@@ -18,7 +18,7 @@ export default function SideBar() {
                     <Link href="/admin" className="flex flex-row items-center">
                         <MdOutlineDashboardCustomize className='text-[20px] mr-2' />
                         <p>
-                            Dashboard
+                            Thống kê
                         </p>
                     </Link>
 
@@ -28,7 +28,7 @@ export default function SideBar() {
                         <MdOutlineAdminPanelSettings className='text-[20px] mr-2' />
                         <p>
 
-                            Admin Account
+                            Admin
                         </p>
                     </Link>
                 </div>
@@ -37,7 +37,7 @@ export default function SideBar() {
                         <FaUserTie className='text-[20px] mr-2' />
                         <p>
 
-                            Staff Account
+                            Giáo viên
                         </p>
                     </Link>
                 </div>
@@ -45,8 +45,7 @@ export default function SideBar() {
                     <Link href="/admin/studentaccount" className="flex flex-row items-center">
                         <FaUserGraduate className='text-[20px] mr-2' />
                         <p>
-
-                            student Account
+                            Học viên
                         </p>
                     </Link>
                 </div>
@@ -55,7 +54,7 @@ export default function SideBar() {
                     <Link href="/admin/news" className="flex flex-row items-center">
                         <HiNewspaper className='text-[20px] mr-2' />
                         <p>
-                            News
+                            Bản tin
                         </p>
                     </Link>
                 </div>
@@ -64,7 +63,7 @@ export default function SideBar() {
                     <Link href="/admin/course" className="flex flex-row items-center">
                         <HiOutlineCreditCard className='text-[20px] mr-2' />
                         <p>
-                            Course
+                            Khóa học
                         </p>
                     </Link>
                 </div>
@@ -73,7 +72,7 @@ export default function SideBar() {
                     <Link href="/admin/recruitment" className="flex flex-row items-center">
                         <LiaAddressCard className='text-[20px] mr-2' />
                         <p>
-                            Recruitment
+                            Tuyển dụng
                         </p>
                     </Link>
                 </div>
@@ -82,7 +81,7 @@ export default function SideBar() {
                     <Link href="/admin/contact" className="flex flex-row items-center">
                         <FaMailBulk className='text-[20px] mr-2' />
                         <p>
-                            Contact
+                            Phản hồi
                         </p>
                     </Link>
                 </div>

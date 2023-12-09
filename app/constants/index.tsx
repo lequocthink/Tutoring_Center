@@ -1,23 +1,28 @@
 export const User = [
-    {   
-        name:"My learning",
-        link: '/'
-    },
 
     {
-        name:"My card",
-        link:'/basket'
+        name: "Admin",
+        link: '/admin'
     },
     {
-        name:"My courses",
-        link:'/mycourses'
+        name: "Cài đặt",
+        link: '/setting'
     },
     {
-        name:"Messages",
-        link:'/'
+        name: "Khóa học của tôi",
+        link: '/basket'
     },
+
+    // {
+    //     name: "My card",
+    //     link: '/basket'
+    // },
+    // {
+    //     name: "My courses",
+    //     link: '/mycourses'
+    // },
     {
-        name:"Notifications",
-        link:'/'
+        name: "Nội quy trung tâm",
+        link: '/'
     },
 ]

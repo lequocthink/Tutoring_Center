@@ -1,5 +1,7 @@
 import getNewsById from "@/app/actions/getNewsById"
 import Input from "@/app/(components)/Inputs/Input"
+import { BiArrowBack } from "react-icons/bi";
+import Link from "next/link";
 
 
 interface IParams {
@@ -13,7 +15,10 @@ export default async function page({ params }: { params: IParams }) {
 
     return (
         <div className="container m-auto shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 mb-[40px]">
-            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[100%] py-2 mb-[20px] mt-[50px]">
+            <Link href={'/news/'} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded items-center mt-4 absolute">
+                <BiArrowBack className="text-[25px]" />
+            </Link>
+            <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto w-[100%] py-2 mb-[20px] mt-[70px]">
 
                 <h1 className="text-center uppercase text-[60px]">{news?.mainTitle}</h1>
             </div>

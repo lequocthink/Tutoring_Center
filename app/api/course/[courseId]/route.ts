@@ -10,12 +10,12 @@ export async function DELETE(
         params
     }: {params:IParams}
 ) {
-    const currentUser = await myUser()
+    // const currentUser = await myUser()
 
 
-    if(!currentUser) {
-        return NextResponse.error()
-    }
+    // if(!currentUser) {
+    //     return NextResponse.error()
+    // }
 
     const {courseId} = params
 
@@ -27,7 +27,7 @@ export async function DELETE(
     const course = await prisma.course.deleteMany({
         where: {
             id:courseId,
-            userId:currentUser.id
+            // userId:currentUser.id
         }
     });
 
@@ -41,23 +41,62 @@ export async function PUT(
 ) {
     const {courseId} = params
     const json = await request.json()
-    const currentUser = await myUser()
+    const {
+        name,
+        imageSrc,
+        description,
+        price,
+        teacherId,
+        studentId,
+        // transcriptId,
+        // scheduleId,
+        location,
+        updateTeacher
+    } = json
+    // const currentUser = await myUser()
 
 
-    if(!currentUser) {
-        return NextResponse.error()
-    }
+    // if(!currentUser) {
+    //     return NextResponse.error()
+    // }
 
     if(!courseId || typeof courseId !== 'string') {
         throw new Error('Invalid Id')
     }
 
-    const updated = await prisma.course.update({
-        where: {
-            id: courseId,
-        },
-        data:  json
-    })
+    let updated:any;
+
+
+    if(updateTeacher === false){
+        updated = await prisma.course.update({
+            where: {
+                id: courseId,
+            },
+            data: {
+                name,
+                imageSrc,
+                description,
+                price,
+                studentId,
+                // transcriptId,
+                // scheduleId,
+                location
+            }
+        })
+    }
+    else {
+
+
+        updated = await prisma.course.update({
+            where: {
+                id: courseId,
+            },
+            data: {
+                teacherId: teacherId
+            }
+        })
+    }
+
 
     return NextResponse.json(updated)
 

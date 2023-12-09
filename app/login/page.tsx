@@ -96,7 +96,7 @@ export default function page() {
                     </div>
                 </form>
 
-                <div className='text-center mt-3'>Bạn không có tài khoản ? <Link href='/register'>Đăng ký</Link></div>
+                {/* <div className='text-center mt-3'>Bạn không có tài khoản ? <Link href='/register'>Đăng ký</Link></div> */}
             </div>
         </div>
 

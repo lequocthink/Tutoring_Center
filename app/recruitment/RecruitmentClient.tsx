@@ -16,7 +16,7 @@ interface NewsProps {
 export default function RecruitmentClient({ data }: NewsProps) {
 
     return (
-        <div className="w-[726px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
+        <div className="w-[600px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4">
 
 
 
@@ -27,10 +27,10 @@ export default function RecruitmentClient({ data }: NewsProps) {
                         w-[700px]
                         h-[150px]
                         border-black border-[1px]
-            "/>
+                    "/>
                 </div>
-                <div className="flex flex-col font-light items-start p-5 justify-around my-auto">
-                    <h3 className="text-[20px] mb-5">{data.title}</h3>
+                <div className="w-[300px] flex flex-col font-light items-start p-5 justify-around my-auto">
+                    <h3 className="text-[20px] mb-5 break-words">{data.title}</h3>
                     <Link href={'/recruitment/' + data.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Xem chi tiết
                     </Link>

@@ -14,9 +14,6 @@ export default async function getCourseById(
         const course = await prisma.course.findUnique({
             where: {
                 id:courseId
-            },
-            include: {
-                user:true
             }
         });
 
@@ -28,11 +25,6 @@ export default async function getCourseById(
         return {
             ...course,
             createdAt:course?.createdAt.toString(),
-            user: {
-                ...course?.user,
-                createdAt: course?.user.createdAt.toString(),
-                updatedAt: course?.user.updatedAt.toString(),
-            }
         }
         
     }catch(error:any) {

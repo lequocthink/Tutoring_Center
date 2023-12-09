@@ -30,7 +30,7 @@ export default async function IntroduceSecond(searchParams: Props) {
           ))} */}
 
           {courses.slice(0, 4).map((item: any) => (
-            <div className="w-[726px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4 bg-slate-100" key={item.id}>
+            <div className="w-[600px] m-[20px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-4 bg-slate-100" key={item.id}>
 
 
 

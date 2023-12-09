@@ -87,15 +87,15 @@ export default function page() {
                                 <form action="#" className="space-y-8" onSubmit={onSubmit}>
                                     <div>
                                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#063953]">Email của bạn:</label>
-                                        <input type="email" id="email" name="email" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="name@flowbite.com" required onChange={handleChange} value={state.email} />
+                                        <input type="email" id="email" name="email" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="Hãy nhập email của bạn" required onChange={handleChange} value={state.email} />
                                     </div>
                                     <div>
                                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#063953]">Tên của bạn:</label>
-                                        <input type="text" id="name" name="name" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="Let us know how we can help you" required onChange={handleChange} value={state.name} />
+                                        <input type="text" id="name" name="name" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="Hãy nhập tên của bạn" required onChange={handleChange} value={state.name} />
                                     </div>
                                     <div className="sm:col-span-2">
                                         <label htmlFor="message" className="block mb-2 text-sm font-medium text-[#063953]">Nội dung:</label>
-                                        <input type="text" id="message" name="message" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="Leave a comment..." onChange={handleChange} value={state.message} />
+                                        <input type="text" id="message" name="message" className="shadow-sm bg-black-50 border border-gray-600 text-black-900 text-sm rounded-lg block w-full p-2.5" placeholder="Hãy nhập nội dung phản hồi" onChange={handleChange} value={state.message} />
                                     </div>
                                     <button type="submit" className="py-2 px-6 border-black border-[1px] rounded-[12px]">Gửi</button>
                                 </form>

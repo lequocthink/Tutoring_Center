@@ -2,6 +2,8 @@ import getAllNews from "../actions/getAllNews";
 // import NewsClient from "./NewsClient";
 import CourseClient from "./CourseClient";
 import getAllCourses from "@/app/actions/getAllCourses";
+import myUser from "../actions/getUser";
+
 
 interface Props {
     searchParams: string
@@ -11,6 +13,8 @@ interface Props {
 export default async function page(searchParams: Props) {
 
     const courses = await getAllCourses(searchParams);
+    const currentUser = await myUser();
+
 
     if (courses.length === 0) {
         return "No courses found to delete or update"
@@ -27,7 +31,7 @@ export default async function page(searchParams: Props) {
                 {courses.map((item) => (
                     <CourseClient
                         data={item}
-                        key={item.id} currentUser={null} />
+                        key={item.id} currentUser={currentUser} />
                 ))}
             </div>
 
