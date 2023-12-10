@@ -135,7 +135,7 @@ export default function Navbar({ myUser, basketItems }: UserMenuProps) {
                                 {/* <span>{myUser.name.at(0)?.toUpperCase()}</span> */}
                                 {/* <span>{myUser.name.at(1)?.toUpperCase()}</span> */}
                                 {
-                                    myUser?.avatar !== '' ?
+                                    myUser.avatar !== '' ?
 
                                         <Image src={myUser?.avatar} alt="Logo" width={50} height={50} />
                                         :

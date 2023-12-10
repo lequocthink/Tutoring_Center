@@ -30,7 +30,7 @@ export default function RecruitmentClient({ data }: NewsProps) {
                     "/>
                 </div>
                 <div className="w-[300px] flex flex-col font-light items-start p-5 justify-around my-auto">
-                    <h3 className="text-[20px] mb-5 break-words">{data.title}</h3>
+                    <h3 className="text-[20px] mb-5 break-words capitalize">{data.title}</h3>
                     <Link href={'/recruitment/' + data.id} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Xem chi tiết
                     </Link>

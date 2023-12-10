@@ -17,7 +17,7 @@ interface InitialValue {
     price: string,
     videoSrc: string,
     description: string,
-    location: String,
+    location: string,
 }
 
 const initialValue: InitialValue = {
@@ -234,11 +234,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="mondayFive" name="mondayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="mondayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="mondayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="mondaySix" name="mondayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="mondaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="mondaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, monday: prevState.monday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -280,11 +280,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="tuesdayFive" name="tuesdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="tuesdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="tuesdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="tuesdaySix" name="tuesdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="tuesdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="tuesdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, tuesday: prevState.tuesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -326,11 +326,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="wednesdayFive" name="wednesdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="wednesdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="wednesdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="wednesdaySix" name="wednesdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="wednesdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="wednesdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, wednesday: prevState.wednesday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -372,11 +372,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="thursdayFive" name="thursdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="thursdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="thursdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="thursdaySix" name="thursdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="thursdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="thursdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, thursday: prevState.thursday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -418,11 +418,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="fridayFive" name="fridayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="fridayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="fridayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="fridaySix" name="fridayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="fridaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="fridaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, friday: prevState.friday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -464,11 +464,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="saturdayFive" name="saturdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="saturdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="saturdayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="saturdaySix" name="saturdayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="saturdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="saturdaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, saturday: prevState.saturday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>
@@ -510,11 +510,11 @@ export default function page() {
                                     </p>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="sundayFive" name="sundayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))} />
-                                        <label htmlFor="sundayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>18:00 - 19:30</label>
+                                        <label htmlFor="sundayFive" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 4 ? '1' : index === 5 ? '0' : item) }))}>17:00 - 18:30</label>
                                     </div>
                                     <div className="flex flex-row items-center mr-[40px]">
                                         <input type="radio" id="sundaySix" name="sundayEvening" value="1" className="w-[20px] h-[20px] mr-[10px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))} />
-                                        <label htmlFor="sundaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>19:30 - 21:00</label>
+                                        <label htmlFor="sundaySix" className="text-[20px]" onClick={() => setSchedule((prevState) => ({ ...prevState, sunday: prevState.sunday.map((item, index) => index === 5 ? '1' : index === 4 ? '0' : item) }))}>18:30 - 20:00</label>
                                     </div>
                                 </div>
                             </div>

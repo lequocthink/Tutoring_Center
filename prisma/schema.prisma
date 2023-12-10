@@ -114,3 +114,19 @@ model Contact {
   message   String
   createdAt DateTime @default(now())
 }
+
+model Notification {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  courseId    String
+  teacherName String
+  message     String
+  createdAt   DateTime @default(now())
+}
+
+model Document {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  nameFile  String
+  courseId  String
+  urlFile   String
+  createdAt DateTime @default(now())
+}

@@ -1,6 +1,7 @@
 import myUser from "@/app/actions/getUser"
 import getCourseById from "@/app/actions/getCourseById"
 import Induvidual from "../Induvidual";
+import Intermediate from "../Intermediate";
 
 interface IParams {
   courseId?: string
@@ -14,14 +15,9 @@ export default async function page({ params }: { params: IParams }) {
   return (
     <div className="w-[100%] bg-zinc-900">
 
-      <Induvidual
-        courseId={course?.id}
+      <Intermediate
         currentUser={currentUser}
-        price={course?.price}
-        imageSrc={course?.imageSrc}
-        name={course?.name}
-        location={course?.location}
-        description={course?.description}
+        data={course}
       />
     </div>
   )
